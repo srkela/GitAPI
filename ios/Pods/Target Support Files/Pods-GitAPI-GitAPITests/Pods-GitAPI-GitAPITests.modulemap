@@ -1,0 +1,6 @@
+module Pods_GitAPI_GitAPITests {
+  umbrella header "Pods-GitAPI-GitAPITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

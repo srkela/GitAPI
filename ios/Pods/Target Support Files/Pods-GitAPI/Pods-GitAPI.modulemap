@@ -1,0 +1,6 @@
+module Pods_GitAPI {
+  umbrella header "Pods-GitAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}
