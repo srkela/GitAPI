@@ -1,3 +1,5 @@
+import React from 'react';
+import Text from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {navigatorConfig} from './navigatorConfig';
@@ -11,7 +13,6 @@ const screens = {
 const navigatorProps = {
   initialRouteParams: Home,
   navigatorConfig,
-  // TODO: add navigation props
 };
 
 const AppNavigator = createStackNavigator(screens, navigatorProps);
