@@ -11,9 +11,12 @@
     "postinstall": "jetifier -r"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-navigation": "^4.4.4"
+    "react-native-safe-area-context": "^3.2.0",
+    "react-navigation": "^4.4.4",
+    "react-navigation-stack": "^1.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
