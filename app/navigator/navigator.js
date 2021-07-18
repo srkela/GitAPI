@@ -1,15 +1,13 @@
-import React from 'react';
-import Text from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {navigatorConfig} from './navigatorConfig';
 
 import Home from '../components/screens/Home';
-import Details from '../components/screens/Details';
+import CommitList from '../components/screens/CommitList';
 
 const screens = {
   Home,
-  Details,
+  CommitList,
 };
 
 const navigatorProps = {

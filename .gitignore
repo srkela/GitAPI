@@ -101,4 +101,7 @@ dist
 .dynamodb/
 
 # TernJS port file
+# NOTE: quick and dirty solution for using personal access tokens
 .tern-port
+/.keys/
+/constants/accessToken.js

@@ -13,16 +13,24 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  () => ({}),
+  state => ({
+    commitsList: state.commits.commitsList,
+  }),
   dispatch => ({actions: bindActionCreators(appActions, dispatch)}),
 )
-class Details extends React.Component {
+class CommitList extends React.Component {
   static navigationOptions = () => ({
-    title: 'Commit Details',
+    title: 'Commit CommitList',
   });
+  componentDidMount() {
+    const {actions} = this.props;
+
+    actions.getCommitList();
+  }
 
   render() {
-    const {actions} = this.props;
+    const {actions, commitsList} = this.props;
+    console.log({commitsList});
     return (
       <View style={styles.mainContainer}>
         <TouchableOpacity
@@ -36,4 +44,4 @@ class Details extends React.Component {
   }
 }
 
-export default Details;
+export default CommitList;
