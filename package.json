@@ -11,7 +11,9 @@
     "postinstall": "jetifier -r"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.14.5",
     "@react-native-community/masked-view": "^0.1.11",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-gesture-handler": "^1.10.3",
@@ -36,5 +38,33 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "babel": {
+    "presets": [
+      "module:metro-react-native-babel-preset"
+    ],
+    "env": {
+      "production": {}
+    },
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "transform-inline-environment-variables",
+        {
+          "include": [
+            "NODE_ENV",
+            "API"
+          ]
+        }
+      ],
+      [
+        "@babel/plugin-proposal-optional-catch-binding"
+      ]
+    ]
   }
 }

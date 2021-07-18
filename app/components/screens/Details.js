@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
   () => ({}),
   dispatch => ({actions: bindActionCreators(appActions, dispatch)}),
 )
-class Home extends React.Component {
+class Details extends React.Component {
   static navigationOptions = () => ({
-    title: 'Commits List',
+    title: 'Commit Details',
   });
 
   render() {
@@ -27,13 +27,13 @@ class Home extends React.Component {
       <View style={styles.mainContainer}>
         <TouchableOpacity
           onPress={() => {
-            actions.navigateTo('Details');
+            actions.navigateTo('Home');
           }}>
-          <Text>Home Something</Text>
+          <Text>Details Something</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default Home;
+export default Details;
