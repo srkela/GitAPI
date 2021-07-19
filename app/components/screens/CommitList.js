@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 20,
+  },
+  listItem: {
+    paddingVertical: 3,
+    borderColor: 'gray',
+    borderWidth: 0.5,
   },
 });
 
@@ -23,22 +29,30 @@ class CommitList extends React.Component {
     title: 'Commit CommitList',
   });
   componentDidMount() {
-    const {actions} = this.props;
-
-    actions.getCommitList();
+    const {actions, navigation} = this.props;
+    const owner = navigation.getParam('owner');
+    const repo = navigation.getParam('repo');
+    const numOfCommits = navigation.getParam('numberOfCommits');
+    actions.getCommitList(owner, repo, numOfCommits);
   }
 
   render() {
-    const {actions, commitsList} = this.props;
+    const {commitsList} = this.props;
     console.log({commitsList});
     return (
       <View style={styles.mainContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            actions.navigateTo('Home');
-          }}>
-          <Text>Details Something</Text>
-        </TouchableOpacity>
+        <FlatList
+          data={commitsList}
+          renderItem={({item}) => {
+            return (
+              <View style={styles.listItem}>
+                <Text>Author name: {item.commit.author.name}</Text>
+                <Text>Commit hash: {item.sha}</Text>
+                <Text>Commit message: {item.commit.message}</Text>
+              </View>
+            );
+          }}
+        />
       </View>
     );
   }
