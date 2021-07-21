@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import {Provider} from 'react-redux';
 import AppNavigation from './app/navigator/navigator';
 
@@ -30,22 +29,24 @@ function getActiveRouteName(navigationState) {
   return route.routeName;
 }
 
-const App: () => Node = () => {
-  return (
-    <Provider store={store}>
-      <AppNavigation
-        onNavigationStateChange={(prevState, currentState) => {
-          const currentScreen = getActiveRouteName(currentState);
-          const prevScreen = getActiveRouteName(prevState);
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppNavigation
+          onNavigationStateChange={(prevState, currentState) => {
+            const currentScreen = getActiveRouteName(currentState);
+            const prevScreen = getActiveRouteName(prevState);
 
-          if (prevScreen !== currentScreen) {
-            store.dispatch(setActiveScreen(currentScreen));
-          }
-        }}
-        ref={navigatorRef => setTopLevelNavigator(navigatorRef)}
-      />
-    </Provider>
-  );
-};
+            if (prevScreen !== currentScreen) {
+              store.dispatch(setActiveScreen(currentScreen));
+            }
+          }}
+          ref={navigatorRef => setTopLevelNavigator(navigatorRef)}
+        />
+      </Provider>
+    );
+  }
+}
 
 export default App;
