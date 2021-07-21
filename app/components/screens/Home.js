@@ -6,17 +6,18 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, Provider} from 'react-redux';
 import * as appActions from '../../redux/actions';
+import store from '../../redux/store';
 
 const Home = () => {
   const [owner, setOwner] = useState('');
   const [repo, setRepo] = useState('');
   const [numberOfCommits, setNumberOfCommits] = useState(null);
   const dispatch = useDispatch();
-
   return (
     <View style={styles.mainContainer}>
+      <Text>Please enter owner, repo and number of commits</Text>
       <TextInput
         style={styles.textInput}
         onChangeText={text => setOwner(text)}
@@ -35,6 +36,7 @@ const Home = () => {
       />
       <TouchableOpacity
         style={styles.button}
+        testID={'button'}
         onPress={() => {
           dispatch(
             appActions.navigateTo('CommitList', {
@@ -50,9 +52,17 @@ const Home = () => {
   );
 };
 
-export default Home;
+const HomeWrapper = () => {
+  return (
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  );
+};
 
-const styles = StyleSheet.create({
+export default HomeWrapper;
+
+export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'flex-start',

@@ -1,5 +1,9 @@
 import React from 'react';
 import mock from 'react-native-gesture-handler/jestSetup';
+import {configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({adapter: new Adapter()});
 
 jest.mock('react-native-gesture-handler', () => {
   return mock;
