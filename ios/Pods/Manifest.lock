@@ -251,7 +251,7 @@ PODS:
     - React
   - RNGestureHandler (1.10.3):
     - React-Core
-  - RNPermissions (3.0.0):
+  - RNPermissions (3.0.5):
     - React-Core
   - RNScreens (1.0.0-alpha.23):
     - React
@@ -390,7 +390,7 @@ SPEC CHECKSUMS:
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
-  RNPermissions: 99dd8d4a30ff13509b949ca63cd1f69edc461775
+  RNPermissions: 7043bacbf928eae25808275cfe73799b8f618911
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
 
