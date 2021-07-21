@@ -1,8 +1,9 @@
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import React from 'react';
+import React, {Provider} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as appActions from '../../redux/actions';
+import store from '../../redux/store';
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 )
 class CommitList extends React.Component {
   static navigationOptions = () => ({
-    title: 'Commit CommitList',
+    title: 'CommitList',
   });
   componentDidMount() {
     const {actions, navigation} = this.props;
@@ -58,4 +59,9 @@ class CommitList extends React.Component {
   }
 }
 
-export default CommitList;
+export default connect(
+  state => ({
+    commitsList: state.commits.commitsList,
+  }),
+  dispatch => ({actions: bindActionCreators(appActions, dispatch)}),
+)(CommitList);
