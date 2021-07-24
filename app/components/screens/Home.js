@@ -15,6 +15,7 @@ const Home = () => {
   const [repo, setRepo] = useState('');
   const [numberOfCommits, setNumberOfCommits] = useState(null);
   const dispatch = useDispatch();
+
   return (
     <View style={styles.mainContainer}>
       <Text>Please enter owner, repo and number of commits</Text>
@@ -58,6 +59,12 @@ const HomeWrapper = () => {
       <Home />
     </Provider>
   );
+};
+
+HomeWrapper.navigationOptions = () => {
+  return {
+    title: 'Welcome!',
+  };
 };
 
 export default HomeWrapper;
