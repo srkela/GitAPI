@@ -3,7 +3,6 @@ import React, {Provider} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as appActions from '../../redux/actions';
-import store from '../../redux/store';
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -19,12 +18,6 @@ const styles = StyleSheet.create({
   },
 });
 
-@connect(
-  state => ({
-    commitsList: state.commits.commitsList,
-  }),
-  dispatch => ({actions: bindActionCreators(appActions, dispatch)}),
-)
 class CommitList extends React.Component {
   static navigationOptions = () => ({
     title: 'CommitList',
@@ -39,11 +32,11 @@ class CommitList extends React.Component {
 
   render() {
     const {commitsList} = this.props;
-    console.log({commitsList});
     return (
       <View style={styles.mainContainer}>
         <FlatList
           data={commitsList}
+          keyExtractor={item => item.sha}
           renderItem={({item}) => {
             return (
               <View style={styles.listItem}>
