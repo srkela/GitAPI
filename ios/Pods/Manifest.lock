@@ -249,8 +249,8 @@ PODS:
     - React-jsi (= 0.63.4)
   - RNCMaskedView (0.1.11):
     - React
-  - RNGestureHandler (1.10.3):
-    - React-Core
+  - RNGestureHandler (1.3.0):
+    - React
   - RNScreens (1.0.0-alpha.23):
     - React
   - Yoga (1.14.0)
@@ -384,7 +384,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
 
